@@ -13,7 +13,7 @@ export class AccountStore {
     @action
     addAccount = (accountName: string, customerId: string) => {
         if (!accountName || !customerId) {
-            throw 'accountname and customerid required';
+            return;
         }
         this.accounts.push({id:`acc${this.accounts.length}`, customerId, name: accountName});
     }
