@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Link, Route, Switch, useRouteMatch } from "react-router-dom"
-import { CustomerStore, TCustomer } from "../stores/customer-store"
+import { Link, Route, Switch, useRouteMatch } from "react-router-dom"
+import { TCustomer } from "../stores/customer-store"
 import { CustomerPage } from "./customer-page";
 
 export const CustomersPage = () =>
@@ -12,7 +12,7 @@ export const CustomersPage = () =>
 
     return <>
         <ul>
-            { customers.map(c => <li><Link to={`${ match.path }/${ c.id }`} >{ c.name }</Link> </li>) }
+            { customers.map(c => <li key={c.id}><Link to={`${ match.path }/${ c.id }`} >{ c.name }</Link> </li>) }
         </ul>
         <Switch>
             <Route path={`${ match.path }/:customerId`}><CustomerPage /></Route>

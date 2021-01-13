@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import { AccountsPage } from './pages/accounts-page';
 import { CustomerPage } from './pages/customer-page';
 import { CustomersPage } from './pages/customers-page';
 
@@ -28,15 +29,12 @@ function App() {
             </ul>
           </nav>
           <Switch>
-            <Route path="/customers">
-              <CustomersPage />
-            </Route>
-            <Route path="/customer/:customerId">
-              <CustomerPage />
-            </Route>
-            <Route path="/account">
-              <h3>account</h3>
-            </Route>
+            <Route path="/customers" component={ CustomersPage } />
+            <Route path="/customer/:customerId" component={CustomerPage} />
+            <Route path="/customer/:customerId/:accountNo" component={CustomerPage} />
+            <Route path="/accounts" component={ AccountsPage } />
+            <Route path="/account/:accountNo" component={ AccountsPage } />
+            <Route path="/account/:accountNo/:customerNo" component={ AccountsPage } />
           </Switch>
         </Router>
       </header>
